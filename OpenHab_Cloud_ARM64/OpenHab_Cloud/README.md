@@ -1,4 +1,4 @@
-# openHAB Cloud
+# OpenHAB Cloud
 
 openHAB Cloud is a companion cloud service and backend for the openHAB open-source home automation software.
 The openHAB Cloud backend provides secure remote access and enables openHAB users to remotely monitor,
