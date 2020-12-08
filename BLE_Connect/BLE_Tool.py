@@ -37,8 +37,7 @@ class BLE_Device_Connect(object):
         
         if PID == 0:
             # Child process. Exec ble-serial
-            #os.execl('/usr/local/bin/ble-serial', 'ble-serial', '-d', 'self.BLE_Device_ID', '-r', 'self.BLE_Service_ID')
-            os.execl('/usr/local/bin/ble-scan', 'ble-scan')
+            os.execl('/usr/local/bin/ble-serial', 'ble-serial', '-d', 'self.BLE_Device_ID', '-r', 'self.BLE_Service_ID')
         else:
             # Parent process
             self.Child_TTY_FD = FD
@@ -86,7 +85,7 @@ class BLE_Device_Connect(object):
     def End_Porgram(self):
         # Unregister the signal (set to SIG_DFL) to prevent recusively calling stop()
         signal.signal(signal.SIGCHLD, signal.SIG_DFL)
-        logger.debug('Kill pid {}'.format(self.Child_PID))
+        logger.debug('Kill PID {}'.format(self.Child_PID))
         os.kill(self.Child_PID, signal.SIGTERM)
         logger.debug('Wait PID {}'.format(self.Child_PID))
         os.waitpid(self.Child_PID, 0)
@@ -98,12 +97,3 @@ class Read_BLE_Recive_Data(object):
     
     def Read(self):
         pass
-        
-CWS100 = BLE_Device_Connect(1, 2)
-CWS100.Start_Connect()
-
-while True:
-    CWS100.Read_TTY(32768)
-    time.sleep(0.25)
-    CWS100.Read_TTY(32768)
-    time.sleep(0.25)
