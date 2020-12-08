@@ -37,7 +37,7 @@ class BLE_Device_Connect(object):
         
         if PID == 0:
             # Child process. Exec ble-serial
-            os.execl('/usr/local/bin/ble-serial', 'ble-serial', '-d', 'self.BLE_Device_ID', '-r', 'self.BLE_Service_ID')
+            os.execl('/usr/local/bin/ble-serial', 'ble-serial', '-d', self.BLE_Device_ID, '-r', self.BLE_Service_ID)
         else:
             # Parent process
             self.Child_TTY_FD = FD
