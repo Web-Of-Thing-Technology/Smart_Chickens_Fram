@@ -1,0 +1,9 @@
+node_modules
+deployment
+docs
+logs
+test
+Dockerfile
+config*.json
+.*
+*.log

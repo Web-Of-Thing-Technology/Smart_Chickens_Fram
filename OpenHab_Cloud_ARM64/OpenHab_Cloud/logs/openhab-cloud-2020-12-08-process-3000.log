@@ -1,0 +1,34 @@
+2020-12-08 23:49:18:1818 info: openHAB-cloud: Backend service is starting up...
+2020-12-08 23:49:18:1818 info: openHAB-cloud: Backend logging initialized...
+2020-12-08 23:49:28:2828 info: openHAB-cloud: Initializing XMPP connection to GCM
+2020-12-08 23:49:31:3131 info: openHAB-cloud: Connecting to Redis at 127.0.0.1:6379
+2020-12-08 23:49:55:5555 info: openHAB-cloud: Mailer will emulate sending in development environment
+2020-12-08 23:49:56:5656 info: opneHAB-cloud: Trying to connect to mongodb at: mongodb://127.0.0.1/openhab?poolSize=50
+2020-12-08 23:49:56:5656 info: openHAB-cloud: Scheduling a statistics job (every 5 min)
+2020-12-08 23:50:00:000 info: openHAB-cloud: IFTTT is configured, app handling IFTTT capabilities...
+2020-12-08 23:50:00:000 info: openHAB-cloud: express server listening on port 3000
+2020-12-08 23:50:00:000 error: openHAB-cloud: Redis error: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-12-08 23:50:00:000 error: openHAB-cloud: Redis error: connection is closed
+2020-12-08 23:50:00:000 error: uncaughtException: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+    at Object.exports._errnoException (util.js:1050:11)
+    at exports._exceptionWithHostPort (util.js:1073:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1093:14)
+2020-12-08 23:50:00:000 error: undefined
+2020-12-08 23:55:19:1919 info: openHAB-cloud: Backend service is starting up...
+2020-12-08 23:55:19:1919 info: openHAB-cloud: Backend logging initialized...
+2020-12-08 23:55:29:2929 info: openHAB-cloud: Initializing XMPP connection to GCM
+2020-12-08 23:55:33:3333 info: openHAB-cloud: Connecting to Redis at 127.0.0.1:6379
+2020-12-08 23:55:47:4747 info: openHAB-cloud: Mailer will emulate sending in development environment
+2020-12-08 23:55:47:4747 info: opneHAB-cloud: Trying to connect to mongodb at: mongodb://127.0.0.1/openhab?poolSize=50
+2020-12-08 23:55:47:4747 info: openHAB-cloud: Scheduling a statistics job (every 5 min)
+2020-12-08 23:55:49:4949 info: openHAB-cloud: IFTTT is configured, app handling IFTTT capabilities...
+2020-12-08 23:55:49:4949 info: openHAB-cloud: express server listening on port 3000
+2020-12-08 23:55:49:4949 error: openHAB-cloud: Redis error: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+2020-12-08 23:55:49:4949 error: openHAB-cloud: Redis error: connection is closed
+2020-12-08 23:55:49:4949 error: uncaughtException: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
+    at Object.exports._errnoException (util.js:1050:11)
+    at exports._exceptionWithHostPort (util.js:1073:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1093:14)
+2020-12-08 23:55:49:4949 error: undefined

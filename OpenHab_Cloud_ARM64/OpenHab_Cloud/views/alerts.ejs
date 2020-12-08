@@ -1,0 +1,28 @@
+<% if (errormessages.length > 0) { %>
+<div class="row">
+    <div class="span12">
+        <div class="alert alert-error fade in">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <% if(errormessages.length === 1) { %>
+            <%= errormessages %>
+            <% } else { %>
+            <ul>
+                <% errormessages.forEach(function(err) { %>
+                <li><%= err %></li>
+                <% }) %>
+            </ul>
+            <% } %>
+        </div>
+    </div>
+</div>
+<% } %>
+<% if (infomessages.length > 0) { %>
+<div class="row">
+    <div class="span12">
+        <div class="alert alert-info fade in">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <%= infomessages %>
+        </div>
+    </div>
+</div>
+<% } %>

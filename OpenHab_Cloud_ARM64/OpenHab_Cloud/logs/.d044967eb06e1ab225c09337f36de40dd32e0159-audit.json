@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 7
+    },
+    "auditLog": "logs/.d044967eb06e1ab225c09337f36de40dd32e0159-audit.json",
+    "files": [
+        {
+            "date": 1607442600372,
+            "name": "logs/openhab-cloud-2020-12-08-process-3000.log",
+            "hash": "decb120ba814fcae1443c31f051b46cc"
+        }
+    ]
+}
