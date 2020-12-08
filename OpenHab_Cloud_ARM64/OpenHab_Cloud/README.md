@@ -13,7 +13,7 @@ provides an OAuth2 application enablement.
 
 
 
-![FunctionalArchitecture](/docs/FunctionalArchitecture_openHAB-cloud_v1.0.png)
+![FunctionalArchitecture](/OpenHab_Cloud_ARM64/OpenHab_Cloud/docs/FunctionalArchitecture_openHAB-cloud_v1.0.png)
 
 
 
