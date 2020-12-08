@@ -243,7 +243,7 @@ which is a simple web interface for managing your virtual server instances.
 Make sure that your account has access to EC2 and click on Services -> EC2 link to open the EC2 dashboard.  
 
 
-![AWS_1](/docs/AWS_1.png)
+![AWS_1](/OpenHab_Cloud_ARM64/OpenHab_Cloud/docs/AWS_1.png)
 
 
 
@@ -253,7 +253,7 @@ The EC2 dashboard will look something like the image below:
 
 
 
-![AWS_2.png](/docs/AWS_2.png)
+![AWS_2.png](/OpenHab_Cloud_ARM64/OpenHab_Cloud/docs/AWS_2.png)
 
 We now need to setup a virtual server to install and run the openHAB Cloud application on the node.
 Amazon calls the virtual servers instances. The EC2 instance is similar to a regular unmanaged web-server.
@@ -268,7 +268,7 @@ Click to select your nearest region or chose a preferred region where you want t
 We will use the [AWS Free Tier](https://aws.amazon.com/free/?nc1=h_ls), which includes services with a free tier available for 12 months following your AWS sign-up date. AWS cost varies between regions (be aware that is only free for the first year).
 
 
-![AWS_4.png](/docs/AWS_4.png)
+![AWS_4.png](/OpenHab_Cloud_ARM64/OpenHab_Cloud/docs/AWS_4.png)
 
 * After choosing your region click the blue “Launch Instance” button:
 
@@ -283,19 +283,19 @@ You can select an Amazon AMI, from the user community or you can select one of y
 
 We are going to use a free tier and therefor select the Ubuntu Server, 64-bit by clicking on the blue "Select" button:
 
-![AWS_6.png](/docs/AWS_6.png)
+![AWS_6.png](/OpenHab_Cloud_ARM64/OpenHab_Cloud/docs/AWS_6.png)
 
 
 You will see under the Ubuntu logo that there is a free tier eligible, what we want to use.
 In our guide, we are using the following AMI:
 Ubuntu Server 14.04 LTS (HVM), SSD Volume Type - AMI ID: ami-fce3c696
 
-![AWS_7.png](/docs/AWS_7.png)
+![AWS_7.png](/OpenHab_Cloud_ARM64/OpenHab_Cloud/docs/AWS_7.png)
 
 Leave the default selection with t2.micro where the green label says "Free tier eligible" and click on
 "Next: Configure Instance Details" to open the instance details page.
 
-![AWS_7.png](/docs/AWS_7.png)
+![AWS_7.png](/OpenHab_Cloud_ARM64/OpenHab_Cloud/docs/AWS_7.png)
 
 Just go ahead since we will use the default values on the "Configure Instance Details" page.
 Click on the button "Next: Add Storage".
@@ -308,19 +308,19 @@ We don't need to Tag our Instance and we continue by clicking on "Next: Configur
 In the Configure Security Group page, leave the selected option for "Create a new security group" and
 add rules for protocols and ports by clicking "Add Rule" like in the image below:
 
-![AWS_8.png](/docs/AWS_8.png)
+![AWS_8.png](/OpenHab_Cloud_ARM64/OpenHab_Cloud/docs/AWS_8.png)
 
 We will add SSH to access and admin the instance (virtual server) by your console.
 The next two rules a pretty straight forward and depends how you want to run openHAB Cloud on your node.
 We recommend to use only HTTPS for Security reason. In this example, you also see that we added HTTP.
 
-![AWS_8.png](/docs/AWS_8.png)
+![AWS_8.png](/OpenHab_Cloud_ARM64/OpenHab_Cloud/docs/AWS_8.png)
 
 After setting up the Security Group, go ahead by clicking the blue "Review and Launch" button.
 
 You will see a summary of your Instance Launch, which will look like this image:
 
-![AWS_9.png](/docs/AWS_9.png)
+![AWS_9.png](/OpenHab_Cloud_ARM64/OpenHab_Cloud/docs/AWS_9.png)
 
 Just hit the blue "Launch" button and you will be prompted to select or create a key pair
 to connect securely to your instance.
@@ -329,7 +329,7 @@ Select the "Create a new key pair" option from the dropdown menu and
 enter a name for your key pair (public and private key) and download your .pem file.
 Warning: Don't loose this file, you will not be able to download it again!
 
-![AWS_10.png](/docs/AWS_10.png)
+![AWS_10.png](/OpenHab_Cloud_ARM64/OpenHab_Cloud/docs/AWS_10.png)
 
 The key file must not be publicly viewable for SSH to work.
 Open a terminal window and use this command to restrict access rights to the .pem file:
@@ -341,13 +341,13 @@ chmod 400 YOUR-PEM-FILENAME.pem
 Finally, under Instance you can see your instance starting up and running.
 
 
-![AWS_11.png](/docs/AWS_11.png)
+![AWS_11.png](/OpenHab_Cloud_ARM64/OpenHab_Cloud/docs/AWS_11.png)
 
 There you will find all the needed info to ssh into your node.
 The important info is your Public DNS / Public IP address.
 
 
-![AWS_13.png](/docs/AWS_13.png)
+![AWS_13.png](/OpenHab_Cloud_ARM64/OpenHab_Cloud/docs/AWS_13.png)
 
 You can ssh to your instance with the user "ubuntu", see [here](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html) for more info on
 user accounts on linux instances. In terminal window run this command with your instance infos:
