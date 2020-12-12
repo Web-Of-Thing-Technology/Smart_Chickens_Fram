@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Hen</folder>
+	<filename>H002.jpg</filename>
+	<path>/root/Documents/Python_Chicken_Detect_Project/Train/C027.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>3024</width>
+		<height>2048</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>hen</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>404</xmin>
+			<ymin>453</ymin>
+			<xmax>1596</xmax>
+			<ymax>1794</ymax>
+		</bndbox>
+	</object>
+</annotation>

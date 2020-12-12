@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Train</folder>
+	<filename>C141.JPG</filename>
+	<path>/root/Documents/Python_Chicken_Detect_Project/Train/C141.JPG</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>4000</width>
+		<height>3000</height>
+		<depth>1</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>chicken</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1098</xmin>
+			<ymin>374</ymin>
+			<xmax>3182</xmax>
+			<ymax>2293</ymax>
+		</bndbox>
+	</object>
+</annotation>
