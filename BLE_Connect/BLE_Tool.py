@@ -90,10 +90,3 @@ class BLE_Device_Connect(object):
         logger.debug('Wait PID {}'.format(self.Child_PID))
         os.waitpid(self.Child_PID, 0)
         logger.debug('Child Process {} Died.'.format(self.Child_PID))
-        
-class Read_BLE_Recive_Data(object):
-    def __init__(self):
-        self.Slave_PTS_File_Location = '/tmp/ttyBLE'
-    
-    def Read(self):
-        pass
