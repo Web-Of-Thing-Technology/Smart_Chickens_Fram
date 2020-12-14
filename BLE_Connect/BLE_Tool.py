@@ -6,6 +6,7 @@ import select
 import time
 import logging
 
+logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger(__name__)
 
 class Error(Exception):
@@ -21,6 +22,7 @@ class BLE_Device_Connect(object):
         self.Child_TTY_FD = None
         self.Child_PID = None
         self.poller = select.poll()
+        self.Force_Exit_Program = False
         
     def Start_Connect(self):
         """
@@ -80,6 +82,7 @@ class BLE_Device_Connect(object):
     def _Sigchld_Handler(self, signum, frame):
         """Handler function of SIGCHLD"""
         logger.info('SIGCHLD Signal Received !!!')
+        self.Force_Exit_Program = True
         self.End_Porgram()
         
     def End_Porgram(self):
@@ -90,3 +93,7 @@ class BLE_Device_Connect(object):
         logger.debug('Wait PID {}'.format(self.Child_PID))
         os.waitpid(self.Child_PID, 0)
         logger.debug('Child Process {} Died.'.format(self.Child_PID))
+        if self.Force_Exit_Program == True:
+            logger.critical('BLE Connect Error !')
+            logger.warning('Program Will Now Exit !')
+            sys.exit()
