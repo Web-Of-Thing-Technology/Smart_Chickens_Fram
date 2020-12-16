@@ -14,6 +14,7 @@ time.sleep(10)
 
 try:
     Read_CWS100_Data = PTS_Read.Read_PTS("/tmp/ttyBLE")
+    Read_CWS100_Data.serConf()
 except:
     logger.critical('Can Not Open Pseudo Terminal Slave !')
     logger.warning('Program Will Now Exit !')
