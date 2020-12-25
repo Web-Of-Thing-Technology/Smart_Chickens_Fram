@@ -4,6 +4,7 @@ import logging
 import BLE_Tool
 import PTS_Read
 import Data_Process
+import MQTT_Main
 
 logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger(__name__)
@@ -20,12 +21,15 @@ except:
     logger.warning('Program Will Now Exit !')
     sys.exit()
 
+CWS100_MQTT = MQTT_Main.Publish_To_MQTT()
+
 while True:
     Recive_Data = Read_CWS100_Data.Read_CMD()
     Analysis = Data_Process.PTS_Data_Process(Recive_Data)
     if Recive_Data == '' :
         pass
     else:
+        CWS100_MQTT.Publish_Data("/CWS100/Weight", Analysis.Get_Weight())
         print(Analysis.Get_Weight())
 
 #For BLE_Tool.py Debug Use !
