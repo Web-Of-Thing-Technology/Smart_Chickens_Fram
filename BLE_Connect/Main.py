@@ -5,6 +5,7 @@ import BLE_Tool
 import PTS_Read
 import Data_Process
 import MQTT_Main
+import InfluxDB_Main
 
 logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger(__name__)
@@ -22,6 +23,7 @@ except:
     sys.exit()
 
 CWS100_MQTT = MQTT_Main.Publish_To_MQTT()
+CWS100_InfluxDB = InfluxDB_Main.InfluxDB_Client_Create("http://localhost:8086", "Test_Bucket", "CN10xIU-pX1n71Gx7ZR9uDG-zq3sU9XCRjlgY-Wv_LuvxnvWhaUhVQJb_06xCpnA0UC__1r5YgcoW9G6HRytWw==", "InfluxDB")
 
 while True:
     Recive_Data = Read_CWS100_Data.Read_CMD()
@@ -30,6 +32,7 @@ while True:
         pass
     else:
         CWS100_MQTT.Publish_Data("/CWS100/Weight", Analysis.Get_Weight())
+        CWS100_InfluxDB.CWS100_Data_To_InfluxDB(int(Analysis.Get_Weight()))
         print(Analysis.Get_Weight())
 
 #For BLE_Tool.py Debug Use !
