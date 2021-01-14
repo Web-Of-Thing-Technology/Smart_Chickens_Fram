@@ -46,8 +46,10 @@ void setup()
   //// Initialize WIFI And MQTT Client.
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, pass);
+  
   client.begin("192.168.43.50", net);
   client.onMessage(messageReceived);
+  
   Connect_To_WIFI_And_MQTT();
   
   // Initialize DHT device.
