@@ -82,7 +82,7 @@ void Debug_Print_DHT_Data(void)
 void Measure_Temperature_And_Humidity(void)
 {
   // Delay between measurements.
-  delay(delayMS);
+  //delay(delayMS);
   // Get temperature event and print its value.
   
   sensors_event_t event;

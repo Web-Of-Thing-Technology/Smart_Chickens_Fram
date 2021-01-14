@@ -17,12 +17,18 @@ void Connect_To_WIFI_And_MQTT()
 
   Serial.println("\nconnected!");
 
+  client.subscribe("/CWS100/Weight");
   //client.subscribe("/hello");
   // client.unsubscribe("/hello");
 }
 
 void messageReceived(String &topic, String &payload) {
   Serial.println("incoming: " + topic + " - " + payload);
+
+  if(topic == "/CWS100/Weight")
+  {
+    Blynk.virtualWrite(V0, payload);
+  }
 
   // Note: Do not use the client in the callback to publish, subscribe or
   // unsubscribe as it may cause deadlocks when other things arrive while

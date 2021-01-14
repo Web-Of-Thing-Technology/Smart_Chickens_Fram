@@ -3,7 +3,10 @@
 #include <DHT_U.h>
 
 #include <ESP8266WiFi.h>
+
 #include <MQTT.h>
+
+#include <BlynkSimpleEsp8266.h>
 
 // DHT_Sensor_Conf...........
 #define DHTPIN D3     // Digital pin connected to the DHT sensor
@@ -28,6 +31,14 @@ MQTTClient client;
 unsigned long lastMillis = 0;
 // WIFI_And_MQTT_Conf.................
 
+// Blynk Conf.........................
+#define BLYNK_PRINT Serial
+
+BlynkTimer timer;
+
+char auth[] = "GwqgQPdw8So5k-iS-yTN4KCvoX0YSanZ";
+//Blynk Conf..........................
+
 void setup() 
 {
   Serial.begin(250000);
@@ -42,6 +53,12 @@ void setup()
   // Initialize DHT device.
   dht.begin();
   Print_DHT_Sensor_Info();
+
+  // Initialize Blynk Client.
+  Blynk.begin(auth, ssid, pass, IPAddress(192,168,43,1), 8080);
+
+  // Initialize Blynk Timer.
+  timer.setInterval(5000L, Get_DHT_Sensor_Data);
 }
 
 void loop() 
@@ -54,29 +71,22 @@ void loop()
     Connect_To_WIFI_And_MQTT();
   }
 
-  /*
-  if (millis() - lastMillis > 1000) 
-  {
-    lastMillis = millis();
-    client.publish("/hello", "Test");
-  }
-  */
+  Blynk.run();
+  timer.run();
+}
 
+void Get_DHT_Sensor_Data(void)
+{
   Measure_Temperature_And_Humidity();
   float Temperature = Get_Temperature();
   float Humidity = Get_Humidity();
 
+  client.publish("Sensor1/Temperature", String(Temperature));
+  client.publish("Sensor1/Humidity", String(Humidity));
+
   //client.publish("Sensor1/Temperature", String(Temperature) + "°C");
   //client.publish("Sensor1/Humidity", String(Humidity) + "%");
 
-  client.publish("Sensor1/Temperature", String(Temperature) + "°C");
-  client.publish("Sensor1/Humidity", String(Humidity));
-
-  Serial.print(F("Temperature: "));
-  Serial.print(Temperature);
-  Serial.println(F("°C"));
-
-  Serial.print(F("Humidity: "));
-  Serial.print(Humidity);
-  Serial.println(F("%"));
+  Blynk.virtualWrite(V1, Temperature);
+  Blynk.virtualWrite(V2, Humidity);
 }
